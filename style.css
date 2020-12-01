@@ -1,0 +1,208 @@
+header{
+	border:2px solid green;
+	border-radius:10px;
+	padding:20px;
+	background-color: white;
+	box-shadow: 0px 0px 15px rgb(4, 168, 4);
+}
+header p{
+	float:right;
+	font-family: 'Yatra One', cursive;
+	font-size: 30px;
+	font-weight: bold;
+}
+.page{
+	width: 100%;
+	background-color: rgba(128, 128, 128, 0.685);
+	box-shadow: 0px 0px 8px; /* effet de l'ombre d'abs(0px), ord(0px) et d'angle(8px) */
+}
+#nav{
+	position: relative;
+	width: 20%;
+	height: auto; /* une hauteur qui s'adapte automatique à ses contenus */
+	margin-top: 10px;
+	border-radius: 10px;
+	font-weight: bold;
+}
+#nav ul{
+	list-style-type: none; /* Enlever les puces sur la liste */
+	padding:0px;
+	margin: 0px;
+}
+#nav ul li:not(:first-of-type){		/* cibler tous les "li" sauf le premier */
+	padding: 10px 5px;
+	border-radius:10px;	
+	border: 0.5px solid rgba(94, 144, 237,0.3);
+	margin-left: 2px;		
+}
+#nav ul li:first-of-type{		/* cibler le premier "li" */
+	padding: 10px 0px 10px 5px;
+	border-bottom: 1px solid rgba(94, 144, 237,0.3);	
+	border-radius:10px;
+	margin-left: 2px;
+}
+#nav ul li:last-of-type{	 /* cibler le dernier "li" */
+	border-bottom: 0px;
+	padding: 10px 5px;
+	border-radius:10px;
+}
+
+#nav li a, #nav ul li .sous-menu li a{
+	text-decoration: none;
+	color: white;
+	font-family:sans-serif, 'Times New Roman', Times, serif;
+}
+#nav li{
+	position: relative;
+	margin-bottom:2px; /* Espace de 2px entre chaque lien */
+	background-color:rgb(7, 92, 7);
+	cursor: pointer;
+	transition: ease-in-out .75s; /* permet de passer d'un "<li>" à un autre avec douceur lors du survol (changement de couleur non brusque) */
+}
+#contenu{
+	position: relative;	
+	border:1px solid black ;
+	border-radius: 10px;
+	left: 21%;
+	top: -5.5em;
+	width: 76%;
+	padding: 10px;
+	background-color: white;
+	font-size: 18px;
+}
+/* Les Hovers du menu principal*/
+#nav ul li:hover{	
+	background-color: white;
+}
+#nav ul li:hover a{	
+	color: rgb(7, 92, 7);
+}
+
+#formulaire{
+	position: relative;	
+	border:1px solid black ;
+	border-radius: 10px;
+	left: 21%;
+	top: -5.5em;
+	width: 76%;
+	padding: 10px;
+	background-color: white;
+	font-size: 18px;
+	display: none;
+}
+#map {
+	overflow:hidden;
+	position: relative;	
+	border:1px solid black ;
+	border-radius: 10px;
+	left: 21%;
+	top: -5.5em;
+	width: 76%;
+	padding: 10px;
+	background-color: white;
+	font-size: 18px;
+	display: none;
+	height: 500px;  /* The height is 400 pixels */
+}
+
+/* Les Hovers du menu principal*/
+#nav ul li:hover{background-color: white;}
+#nav ul li:hover a{	color: rgb(7, 92, 7);}
+/* Lignes du Tableau */
+td{border: 1px solid black;}
+th{
+	border-top: 1px solid black;
+	background-color: rgb(177, 174, 174);
+	color: white;
+}
+#formulaire{
+	position: relative;	
+	border:1px solid black ;
+	border-radius: 10px;
+	left: 21%;
+	top: -5.5em;
+	width: 76%;
+	padding: 10px;
+	background-color: white;
+	font-size: 18px;
+	display: none;
+}
+#map {
+	overflow:hidden;
+	position: relative;	
+	border:1px solid black ;
+	border-radius: 10px;
+	left: 21%;
+	top: -5.5em;
+	width: 76%;
+	padding: 10px;
+	background-color: white;
+	font-size: 18px;
+	display: none;
+	height: 500px;  /* The height is 400 pixels */ 
+}
+td,th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+tr {background-color: #ddd;height: 50px;}
+  
+th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #4CAF50;
+	color: white;}
+	
+#table {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+}
+table{width: 100%;}
+
+#notRemove{
+	display: none
+}
+.key{
+    margin: auto;
+    width: 350px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: large;
+    border: 2px solid rgb(7, 92, 7);
+    padding-left: 15px;
+    background-image: url(search.png);
+    background-size: 7%;
+    background-repeat: no-repeat;
+    background-position: 98% 50%;
+    outline: none;
+
+}
+.loading{
+    background-image: url(loading.gif) !important;
+}
+.search ul{
+    display: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 1px solid #4CAF50;
+    border-top:none;
+    list-style-type: none;
+    padding: 0px;
+    margin-top: -2px;
+    width: 98%;
+    margin: auto;
+}
+.search ul li{
+    border-bottom: 1px solid lightcoral;
+    padding: 5px;
+    cursor: pointer;
+    line-height: 30px;
+}
+.search ul li:hover{
+   background-color: lightcoral;
+    color: white;
+}
+.search ul li:last-child{
+    border-bottom: none;
+}
