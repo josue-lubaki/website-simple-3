@@ -22,10 +22,10 @@ $(document).ready(function(){
     $(".page #nav ul li:first-child a").css("color", "white");
     $("#mp").css("background-color", "green");
     $("#mp a").css("color", "white");
-
+/*
     // Vérification du formulaire
     $('form').submit(function(e){
-      if($('input').val() === "" || $('#activite').val() == "champ_vide"){
+      if($('input').val() === ""){
         $('#after_verification').text("Verification...").show().fadeOut(1000);
         $('#after_verification_msg').text("Erreur Detecté").show().fadeIn(4000);
         $('#after_verification_msg').css('color' , 'red');
@@ -38,7 +38,7 @@ $(document).ready(function(){
         e.preventDefault();
       }
     });
-
+*/
   });
 
   $("#mp").click(function(){

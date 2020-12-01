@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Lang dev2/.idea/Lang dev2.iml" filepath="$PROJECT_DIR$/../Lang dev2/.idea/Lang dev2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/devoir.iml" filepath="$PROJECT_DIR$/.idea/devoir.iml" />
+    </modules>
+  </component>
+</project>

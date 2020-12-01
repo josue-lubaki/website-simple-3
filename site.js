@@ -11,13 +11,13 @@ $(document).ready(function() {
             timer = setTimeout(function () {
                 $.ajax({
                     type: "POST",
-                    url : "serveur.php",
+                    url : "search.php",
                     data : {cle : touche},
                     success: function(rep){
                         constat = JSON.parse(rep);
                         $('#popup').empty();
                         for(i=0; i<constat.length;i++){
-                            $("#popup").append("<li>" + constat[i].activity + "</li>");
+                            $("#popup").append("<li>" + constat[i].fullname + "</li>");
                         }
                         if(constat.length > 0){
                             $("#popup").slideDown();
@@ -33,14 +33,14 @@ $(document).ready(function() {
                         $(".key").removeClass("loading");
                     }
 
-                })
+                });
 
-            }, 250)
+            }, 250);
 
 
         } else {
             $('#popup').empty();
             $("#popup").hide();
         }
-    })
+    });
 });

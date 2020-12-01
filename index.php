@@ -1,3 +1,59 @@
+<?php
+session_start();
+?>
+<?php $dictionary = array("En"=>array(    'nom'=>'Nom',
+                                    'mot'=>'Motivation',
+                                    'dat'=>'Date de naissance',
+                                    'sex'=>'Sexe',
+                                    'lact'=>'Listes des activités disponibles',
+                                    'nom'=>'Nom',
+                                    'nbut'=>'Notre but:',
+                                    'ren'=>'Réinitialiser',
+                                    'val'=>'Valider',
+                                    'act'=>'Activité',
+                                    'ins'=>'INSCRIVEZ VOUS',
+                                    'activite'=>'Choisir une activité',
+                                    'lname_placeholder'=> ' Saisir votre prénom',
+                                    'pace'=>'Prénom',
+                                    'name_placeholder'=>' Saisir votre Nom',
+                                    'acc' => 'Accueil',
+                                    'insc' => "S'incrire",
+                                    'crt' => 'Carte',
+                                    'lois' => 'Loisirs pour les étudiants',
+                                    'clé'=>'Saisissez la clé de recherche',
+                                    'activ' => 'Activités',
+                                    'respo' => 'Responsables',
+                                    'nbi'=>"Nombre d'inscrit"),
+
+                    "Fr"=>array(    'nom'=>'Name',
+                                    'mot'=>'Motivation',
+                                    'dat'=>' Date of birth',
+                                    'ins'=>'LOG IN',
+                                    'val'=>'Validate',
+                                    'nbut'=>'Our goal',
+                                    'lact'=>'List of available activities',
+                                    'nom'=>'Name',
+                                    'ren'=>'Reset',
+                                    'sex'=>'Sex',
+                                    'act'=>'Activity',
+                                    'activite'=>'Choose an activity',
+                                    'lname_placeholder'=>' Enter your First name',
+                                    'pace'=>'Lastname',
+                                    'name_placeholder'=>'Enter your name',
+                                    'acc' => 'Homepage',
+                                    'insc' => "Register",
+                                    'crt' => 'Map',
+                                    'lois'=>'Leisure for students',
+                                    'clé'=>'Enter the Search Key',
+                                    'activ' => 'Activity',
+                                    'respo' => 'Manager',
+                                    'nbi'=>"Number of registered"),
+                   );
+if(!isset($_SESSION["lang"]))
+    $_SESSION["lang"] == "Fr";
+
+$l = $_SESSION["lang"];
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -16,20 +72,20 @@
 <body>
 	<header>
 		<img alt="logo UQTR" src="https://www.uqtr.ca/images/logos/logo-uqtr.png"></img>
-		<p>Loisirs pour les étudiants!</p>
+		<p><?php echo $dictionary[$l]['lois' ]?> !</p>
 	</header>
 	<div class="page">
 		<section id="nav">
 			<ul>
-				<li><a href=#> Accueil </a></li>
-				<li id="test"><a href=#> S'inscrire </a></li>
-				<li id="mp"><a href=#> carte </a></li>
+				<li><a href=#> <?php echo $dictionary[$l]['acc' ]?> </a></li>
+				<li id="test"><a href=#> <?php echo $dictionary[$l]['insc' ]?> </a></li>
+				<li id="mp"><a href=#> <?php echo $dictionary[$l]['crt' ]?> </a></li>
 			</ul>
 		</section>
 
 		<section id="contenu">
 
-			<h1>Notre but:</h1>
+			<h1 id="nbut"><?php echo $dictionary[$l]['nbut' ]?></h1>
 
 			<p>Notre site propose aux étudiants désireux de réaliser une ou plusieurs activités de loisir de rejoindre les
 				différentes activités proposées dans la liste suivante en 3 étapes:</p>
@@ -40,36 +96,41 @@
 			</ul>
 			<p>Les différentes activités des groupes sont sous la responsabilite de professionelles. Il s'agit de passionnés du domaine 
 				qui vont feront découvrir des pans inédit de leurs loisirs préférés. Qu'attendez-vous...? Rejoignez-nous!</p>
-			
-			<h2>Liste des activités disponibles</h2> 
-           
+			<div>
+				<h2 id="lact"><?php echo $dictionary[$l]['lact' ]?></h2> 
+				<div class="search">
+                	<input name = "key" placeholder="<?php echo $dictionary[$l]['clé' ]?>" id="key" class="key">
+                	<ul id="popup"></ul>
+           		</div>
+           </div>
 			<table id="table" >
 				<tr id="notRemove">
 					<th onclick="Trier_order()">#</th>
-					<th onclick="Trier_Manager()">Responsable</th>
-					<th onclick="Trier_Activity()">Activités</th>
-					<th onclick="TrierNumofsub()">Nombre d'inscrit</th>
+					<th onclick="Trier_Manager()"><?php echo $dictionary[$l]['respo' ]?></th>
+					<th onclick="Trier_Activity()"><?php echo $dictionary[$l]['activ' ]?></th>
+					<th onclick="TrierNumofsub()"><?php echo $dictionary[$l]['nbi' ]?></th>
 				</tr>
 			</table><br>
 			<button onclick="fill();" id="remplir">Remplir le Tableau</button>
 			<button onclick="removeTable();" id="effacer">Effacer le Tableau</button>
-            <br><br>
-            <div class="search">
-                <input name = "key" placeholder="Saisissez la clef de recherche" id="key" class="key">
-                <ul id="popup"></ul>
-            </div>
+            
+           
 	
 		</section>
+        
+        
+        
 		<div id="formulaire">
-			<form method="POST" action="javascript:alert( 'Erreur Detecté!' );">
-			<p>inscrivez vous</p>
-			<p>Nom  <input type="text" size="50" class ="vide" value=""> </p>
-			<p>Prenom  <input type="text" class ="vide" size="50"value=""> </p>
-			<p>Date de naissance  <input type="date" required> </p>
-			<p>Sexe <input type="radio" name="check" value="homme" checked>Homme <input type="radio" name="check" value="genre">Femme </p>
-			<p>Activite :
+			<form method="POST" action="serveur.php">
+			<p id="ins"><?php echo $dictionary[$l]['ins']?></p>
+            <p id="nom"><?php echo $dictionary[$l]['nom' ]?><input type="text"  size="50" id="name"  name="name" placeholder=" <?php echo $dictionary[$l]['name_placeholder' ]?>"> </p>
+            <p id="pace"><?php echo $dictionary[$l]['pace' ]?><input type="text"  size="50" id="lname" name= "prenom" placeholder=" <?php echo $dictionary[$l]['lname_placeholder' ]?>"> </p>
+			<p id="dat"><?php echo $dictionary[$l]['dat' ]?>  <input type="date" name="day" required> </p>
+			<p id="sex"><?php echo $dictionary[$l]['sex' ]?> <input type="radio" name="sexe" value="homme" checked>Homme
+            <input type="radio" name="sexe" value="genre">Femme </p>
+			<p id="act"><?php echo $dictionary[$l]['act' ]?> :
 				<select id="activite">
-					<option value="champ_vide">Choisir une activité</option>
+					<option value="champ_vide"><?php echo $dictionary[$l]['activite' ]?></option>
 					<option value="Natation">Natation</option>
 					<option value="Randonnée">Randonnée</option>
 					<option value="Badminton">Badminton</option>
@@ -78,13 +139,17 @@
 					<option value="Kayak">Kayak</option>
 				</select>
 			</p>
-			<p>Motivation <input type="text" size="50"> </p>
-			<p><input type="submit" value="valider"> <input type="reset" value="Réinitialiser"> </p>
+			<p id="mot"><?php echo $dictionary[$l]['mot']?> <input type="text" size="50"> </p>
+			<p><input type="submit" id="val" value="<?php echo $dictionary[$l]['val' ]?>">
+            <input type="reset" id="ren" value="<?php echo $dictionary[$l]['ren' ]?>"> </p>
 			</form>
 			<span id="after_verification"></span><br>
 			<span id="after_verification_msg"></span>
 		</div>
 		<div id="map"></div>
+        <form action="lang.php" method="GET">
+            <input type=submit value="<?php echo  $_SESSION["lang"]?>"/>
+        </form>
 	</div>
 	
 </body>

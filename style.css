@@ -69,6 +69,7 @@ header p{
 	padding: 10px;
 	background-color: white;
 	font-size: 18px;
+	
 }
 /* Les Hovers du menu principal*/
 #nav ul li:hover{	
@@ -164,8 +165,8 @@ table{width: 100%;}
 	display: none
 }
 .key{
-    margin: auto;
-    width: 350px;
+   
+    width: 90%;
     height: 30px;
     border-radius: 5px;
     font-size: large;
@@ -176,7 +177,8 @@ table{width: 100%;}
     background-repeat: no-repeat;
     background-position: 98% 50%;
     outline: none;
-
+	 margin-bottom: 0px;
+	 
 }
 .loading{
     background-image: url(loading.gif) !important;
@@ -190,19 +192,32 @@ table{width: 100%;}
     list-style-type: none;
     padding: 0px;
     margin-top: -2px;
-    width: 98%;
-    margin: auto;
+    width: 97.5%;
+	right: 0px;
+	margin-bottom: 5%;
+	background-color: #ddd;
 }
 .search ul li{
-    border-bottom: 1px solid lightcoral;
+    border-bottom: 1px solid #4CAF50;
     padding: 5px;
     cursor: pointer;
     line-height: 30px;
+	
+	 
 }
 .search ul li:hover{
-   background-color: lightcoral;
-    color: white;
+   background-color: #4CAF50;
+   color: black;
 }
 .search ul li:last-child{
     border-bottom: none;
+}
+.search{
+	margin-left: 63%;
+	
+}
+#contenu h2{
+	float: left;
+	clear: right;
+	margin-top: 0px;
 }
