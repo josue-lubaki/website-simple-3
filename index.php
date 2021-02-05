@@ -61,12 +61,12 @@ $l = $_SESSION["lang"];
     <meta charset="UTF-8" />
 	<title>uqtr_loisirs</title>
     <meta value="authors" content="Jeremie Cyrille / Josué Lubaki / Niang Malick / Sarr Badara / Raissa Mbikayi"/>
-    <link rel="stylesheet" href="style.css" type="text/css"/>
-	<script src="jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="css/style.css" type="text/css"/>
+	<script src="js/jquery-3.4.1.js"></script>
 	<script async defer
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv0C3UMlUhyLlkv97wu6ZyvlbQM5SUpWI&callback=initMap"></script>
-	<script src="anim.js"></script>
-    <script src="site.js"></script>
+	<script src="js/anim.js"></script>
+    <script src="js/site.js"></script>
 </head>
 
 <body>
